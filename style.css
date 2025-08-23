@@ -1,100 +1,207 @@
 /* =========================
-   Global Styles
+   Reset and Base
 ========================= */
-body {
-  font-family: 'Poppins', sans-serif;
+* {
   margin: 0;
   padding: 0;
-  background-color: #F5F5F5; /* light beige background */
-  color: #1E3A8A; /* main blue text */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
+  background-color: #f5f5dc; /* beige */
+  color: #003366; /* dark blue */
+  scroll-behavior: smooth; /* smooth scrolling for anchors */
 }
 
-h1, h2, h3, h4 {
-  font-weight: 600;
-  color: #1E3A8A;
+/* =========================
+   Navbar
+========================= */
+header {
+  background: #003366;
+  color: #fff;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-a {
-  color: #1E3A8A;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
   text-decoration: none;
-  position: relative;
-  transition: color 0.3s;
+  color: #f5f5dc;
 }
 
-a::after {
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #f5f5dc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
   content: '';
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: -2px;
+  bottom: -4px;
   left: 0;
-  background-color: #2563EB; /* lighter blue */
-  transition: width 0.3s;
+  background-color: #ffcc00;
+  transition: width 0.3s ease;
 }
 
-a:hover::after {
+.nav-links a:hover::after {
   width: 100%;
 }
 
-a:hover {
-  color: #2563EB;
+.nav-links a:hover {
+  color: #ffcc00; /* gold highlight */
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* =========================
-   Buttons
-========================= */
-button, .btn {
-  background-color: #1E3A8A;
-  color: #fff;
-  border: none;
-  padding: 12px 25px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
+.btn-nav {
+  padding: 0.4rem 0.8rem;
+  background: #ffcc00;
+  color: #003366 !important;
+  border-radius: 6px;
   transition: all 0.3s ease;
 }
 
-button:hover, .btn:hover {
-  background-color: #2563EB;
+.btn-nav:hover {
+  background: #ffd633;
   transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 /* =========================
-   Accent Colors
+   Hero Section
 ========================= */
-.accent {
-  color: #FACC15; /* gold/yellow accent */
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://picsum.photos/1600/600?grayscale') no-repeat center/cover;
+  color: white;
 }
 
-.accent-bg {
-  background-color: #FACC15;
-  color: #1E3A8A;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-weight: 600;
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #ffcc00;
+  color: #003366;
+}
+
+.btn-primary:hover {
+  background: #ffd633;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2) inset;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: white;
+  color: #003366;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 /* =========================
-   Cards / Sections
+   Features Section
 ========================= */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background: #fff;
+}
+
 .card {
-  background-color: #fff;
+  background: #f5f5dc;
+  padding: 2rem;
   border-radius: 12px;
-  padding: 20px;
-  margin: 15px 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  background-color: #fff8dc; /* subtle highlight */
+}
+
+.card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #003366;
+  color: #fff;
+}
+
+footer a {
+  color: #ffcc00;
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 /* =========================
@@ -107,55 +214,23 @@ img {
 }
 
 /* =========================
-   Navigation
-========================= */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-nav a {
-  margin: 0 15px;
-  font-weight: 500;
-}
-
-/* =========================
-   Footer
-========================= */
-footer {
-  background-color: #1E3A8A;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 30px;
-}
-
-footer a {
-  color: #FACC15;
-}
-
-/* =========================
    Responsive
 ========================= */
-@media screen and (max-width: 768px) {
-  nav {
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* later can add hamburger menu */
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .buttons {
     flex-direction: column;
-    gap: 10px;
   }
 
-  .card {
-    margin: 15px 5px;
-  }
-
-  button, .btn {
-    width: 100%;
+  .features {
+    padding: 2rem 1rem;
+    gap: 1.5rem;
   }
 }
-
