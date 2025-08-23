@@ -1,105 +1,55 @@
-/* ===== Yn'G — Beige & Blue Theme ===== */
-:root{
-  --beige:#F7F2E7;
-  --blue:#0EA5E9;
-  --blue-dark:#0284C7;
-  --text:#1F2937;
-  --muted:#64748B;
-  --card:#FFFFFF;
-  --border:#E5E7EB;
-  --radius:16px;
-  --shadow:0 10px 25px rgba(0,0,0,.06);
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #f8f6f1; /* light beige */
 }
 
-*{ box-sizing:border-box; }
-html,body{ margin:0; padding:0; }
-body{
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-  background:var(--beige);
-  color:var(--text);
-  line-height:1.6;
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b; /* dark navy */
+  margin-bottom: 15px;
 }
 
-/* Layout helpers */
-.container{ max-width:1100px; margin:0 auto; padding:0 1rem; }
-.grid{ display:grid; gap:1.25rem; }
-.grid-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
-@media (max-width:900px){ .grid-3{ grid-template-columns:1fr 1fr; } }
-@media (max-width:600px){ .grid-3{ grid-template-columns:1fr; } }
-
-/* Header / Nav */
-header{
-  position:sticky; top:0; z-index:50;
-  background:rgba(255,255,255,.7);
-  backdrop-filter:saturate(180%) blur(10px);
-  border-bottom:1px solid var(--border);
-}
-.nav{ display:flex; align-items:center; justify-content:space-between; padding:.9rem 0; }
-.brand{ display:flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:.3px; }
-.brand img{ height:34px; width:auto; }
-
-nav a{
-  text-decoration:none;
-  color:var(--text);
-  margin-left:1rem;
-  padding:.4rem .6rem;
-  border-radius:999px;
-  transition:transform .12s ease, background .2s ease, color .2s ease;
-}
-nav a:hover{ color:#0b4661; background:rgba(14,165,233,.12); transform:translateY(-1px); }
-
-/* Hero */
-.hero{
-  padding:5rem 0 3.5rem;
-  background:
-    radial-gradient(80% 60% at 10% -10%, rgba(14,165,233,.20), transparent 60%),
-    radial-gradient(60% 50% at 100% 0%, rgba(14,165,233,.10), transparent 50%);
-}
-.hero h1{ font-size:clamp(2rem, 5vw, 3.2rem); margin:.2rem 0 .6rem; line-height:1.1; }
-.hero p{ font-size:clamp(1rem, 2.2vw, 1.15rem); color:var(--muted); max-width:700px; }
-
-/* Buttons */
-.btn{
-  display:inline-block;
-  text-decoration:none;
-  padding:.85rem 1.1rem;
-  border-radius:12px;
-  font-weight:600;
-  border:1px solid transparent;
-  transition:transform .12s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-}
-.btn:active{ transform:translateY(1px); }
-.btn-primary{
-  background:var(--blue); color:white; box-shadow:var(--shadow);
-}
-.btn-primary:hover{ background:var(--blue-dark); }
-.btn-outline{
-  background:transparent; color:var(--text); border-color:var(--border);
-}
-.btn-outline:hover{ background:#ffffff; }
-
-/* Cards / Sections */
-section{ padding:2.2rem 0; }
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:1.2rem;
-  box-shadow:var(--shadow);
-}
-.card h3{ margin-top:.2rem; }
-.muted{ color:var(--muted); }
-
-/* Footer */
-footer{
-  margin-top:2rem; padding:1.5rem 0;
-  border-top:1px solid var(--border);
-  color:var(--muted);
-  font-size:.95rem;
-  background:rgba(255,255,255,.6);
+.hero p {
+  font-size: 1.2rem;
+  color: #4b5563; /* neutral gray */
+  margin-bottom: 25px;
 }
 
-/* Handy utilities if you use them */
-.center{ display:flex; align-items:center; justify-content:center; }
-.spread{ display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-.round{ border-radius:var(--radius); }
+.hero .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-primary {
+  background-color: #0284c7; /* blue */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0369a1; /* darker blue */
+}
+
+.btn-secondary {
+  background-color: #f1f5f9; /* light gray */
+  color: #111827; 
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: background 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #e2e8f0;
+}
