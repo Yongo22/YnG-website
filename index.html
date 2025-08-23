@@ -5,74 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Yn'G Website - Beige and Blue Theme with Custom Logo">
   <title>Yn'G Website</title>
-  
-  <!-- Link external stylesheet -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- SEO & Social -->
-  <meta property="og:title" content="Yn'G Website" />
-  <meta property="og:description" content="Clean beige and blue design with the Yn'G logo." />
-  <meta property="og:type" content="website" />
 </head>
 <body>
-
-  <!-- Header -->
+  <!-- Navigation -->
   <header>
-    <div class="container nav">
-      <a class="brand" href="#">
-        <span>Yn'G</span>
-      </a>
-      <nav>
-        <a href="#features">Features</a>
-        <a href="#about">About</a>
-        <a class="btn btn-outline" href="#contact">Contact</a>
-      </nav>
-    </div>
+    <nav class="navbar">
+      <a href="#" class="logo">Yn'G</a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact" class="btn-nav">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
+  <main>
+    <section class="hero">
       <h1>Welcome to Yn'G</h1>
-      <p class="muted">
-        A clean and modern website styled with a beige and blue theme.
-      </p>
-      <div style="margin-top:1rem;">
-        <a class="btn btn-primary" href="#features">Explore Features</a>
-        <a class="btn btn-outline" href="#about" style="margin-left:.5rem;">Learn More</a>
+      <p>A clean and modern website styled with a beige and blue theme.</p>
+      <div class="buttons">
+        <a href="#features" class="btn-primary">Explore Features</a>
+        <a href="#about" class="btn-secondary">Learn More</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Features Section -->
-  <section id="features">
-    <div class="container grid grid-3">
-      <article class="card">
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="card"> 
         <h3>Fast</h3>
-        <p class="muted">Optimized for speed and performance.</p>
-      </article>
-      <article class="card">
+        <p>Optimized for speed and performance.</p>
+      </div>
+      <div class="card">
         <h3>Accessible</h3>
-        <p class="muted">Built with accessibility in mind.</p>
-      </article>
-      <article class="card">
+        <p>Built with accessibility in mind.</p>
+      </div>
+      <div class="card">
         <h3>Responsive</h3>
-        <p class="muted">Looks great on any device.</p>
-      </article>
-    </div>
-  </section>
+        <p>Looks great on any device.</p>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
-    <div class="container spread">
-      <span>© <span id="y"></span> Yn'G</span>
-      <a href="#top">Back to top ↑</a>
-    </div>
-    <script>
-      document.getElementById('y').textContent = new Date().getFullYear();
-    </script>
+    <p>© 2025 Yn'G</p>
+    <a href="#top">Back to top ↑</a>
   </footer>
-
 </body>
 </html>
-
