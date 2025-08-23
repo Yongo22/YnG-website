@@ -12,7 +12,7 @@ body {
   line-height: 1.6;
   background-color: #f5f5dc; /* beige */
   color: #003366; /* dark blue */
-  scroll-behavior: smooth; /* smooth scrolling for anchors */
+  scroll-behavior: smooth;
 }
 
 /* =========================
@@ -33,7 +33,7 @@ header {
   align-items: center;
 }
 
-.navbar .logo {
+.logo {
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
@@ -50,8 +50,8 @@ header {
   color: #f5f5dc;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s;
   position: relative;
+  transition: color 0.3s;
 }
 
 .nav-links a::after {
@@ -70,7 +70,7 @@ header {
 }
 
 .nav-links a:hover {
-  color: #ffcc00; /* gold highlight */
+  color: #ffcc00;
 }
 
 .btn-nav {
@@ -78,6 +78,7 @@ header {
   background: #ffcc00;
   color: #003366 !important;
   border-radius: 6px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
@@ -95,6 +96,9 @@ header {
   padding: 5rem 2rem;
   background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://picsum.photos/1600/600?grayscale') no-repeat center/cover;
   color: white;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
 }
 
 .hero h1 {
@@ -120,8 +124,8 @@ header {
   font-size: 1rem;
   text-decoration: none;
   font-weight: bold;
-  transition: all 0.3s ease;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -162,6 +166,9 @@ header {
   gap: 2rem;
   padding: 4rem 2rem;
   background: #fff;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
 }
 
 .card {
@@ -176,7 +183,7 @@ header {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  background-color: #fff8dc; /* subtle highlight */
+  background-color: #fff8dc;
 }
 
 .card h3 {
@@ -192,6 +199,9 @@ footer {
   padding: 2rem;
   background: #003366;
   color: #fff;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
 }
 
 footer a {
@@ -205,20 +215,11 @@ footer a:hover {
 }
 
 /* =========================
-   Images
-========================= */
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-/* =========================
    Responsive
 ========================= */
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* later can add hamburger menu */
+    display: none; /* can implement hamburger menu later */
   }
 
   .hero h1 {
