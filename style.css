@@ -19,13 +19,13 @@ body {
 
 /* ===== Dark Mode ===== */
 body.dark-mode {
-  background: #1e1e1e;
+  background: #121212;
   color: #f0f0f0;
 }
 
 /* ===== Header & Navigation ===== */
 header {
-  background: #004466;
+  background: #004466; /* Deep Blue */
   color: white;
   padding: 1rem 2rem;
   position: sticky;
@@ -40,8 +40,11 @@ nav {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
+  color: #ffcc00;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .nav-links {
@@ -110,33 +113,52 @@ nav {
 /* ===== Hero Section ===== */
 .hero {
   text-align: center;
-  padding: 5rem 2rem;
-  background: linear-gradient(to right, #0077b6, #00b4d8);
+  padding: 6rem 2rem;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80') 
+              no-repeat center center/cover;
   color: white;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 68, 102, 0.65); /* Blue overlay for contrast */
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
+  color: #ffcc00;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 
 .hero p {
   margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: #f8f8f8;
 }
 
 .cta-btn {
-  padding: 0.8rem 1.5rem;
+  padding: 0.9rem 1.7rem;
   border: none;
   background: #ffcc00;
-  color: black;
+  color: #004466;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: transform 0.3s, background 0.3s;
 }
 
 .cta-btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  background: #ffe680;
 }
 
 /* ===== Section Styles ===== */
@@ -146,22 +168,22 @@ section {
 }
 
 .features, .blogs, .about {
-  background: #f7f7f7;
+  background: #f7f3ef; /* Beige tone */
 }
 
 .card {
   background: white;
   padding: 1.5rem;
   margin: 1rem auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  max-width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 320px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
 /* ===== Footer ===== */
@@ -170,22 +192,24 @@ footer {
   padding: 2rem;
   background: #004466;
   color: white;
+  font-size: 0.95rem;
 }
 
 /* ===== Buttons ===== */
 #darkModeToggle {
   margin-top: 1rem;
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1.2rem;
   border: none;
   border-radius: 5px;
   background: #ffcc00;
   cursor: pointer;
   font-weight: bold;
-  transition: transform 0.3s;
+  transition: transform 0.3s, background 0.3s;
 }
 
 #darkModeToggle:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  background: #ffe680;
 }
 
 /* ===== Back to Top Button ===== */
@@ -197,15 +221,16 @@ footer {
   background: #0077b6;
   color: white;
   border: none;
-  padding: 0.8rem;
+  padding: 0.9rem;
   border-radius: 50%;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s;
 }
 
 #backToTop:hover {
   background: #005f8d;
+  transform: scale(1.15);
 }
 
 /* ===== Reveal Animation ===== */
