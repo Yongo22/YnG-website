@@ -1,22 +1,32 @@
-/* General Reset */
+/* ===== General Reset ===== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  background: #f9f9f9;
+  background: #fdfdfd;
   color: #333;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Header */
+/* ===== Dark Mode ===== */
+body.dark-mode {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+/* ===== Header & Navigation ===== */
 header {
   background: #004466;
-  color: #fff;
+  color: white;
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
@@ -35,23 +45,23 @@ nav {
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
+  list-style: none;
   gap: 1.5rem;
 }
 
 .nav-links li a {
   text-decoration: none;
-  color: #fff;
+  color: white;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .nav-links li a:hover {
-  color: #ffd700;
+  color: #ffcc00;
 }
 
-/* Hamburger Menu */
+/* ===== Mobile Menu ===== */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -59,172 +69,33 @@ nav {
 }
 
 .hamburger span {
-  width: 25px;
   height: 3px;
-  background: #fff;
+  width: 25px;
+  background: white;
   margin: 4px 0;
   transition: 0.3s;
 }
 
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 5rem 2rem;
-  background: linear-gradient(to right, #004466, #006699);
-  color: #fff;
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.cta-btn {
-  padding: 0.7rem 1.5rem;
-  background: #ffd700;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.cta-btn:hover {
-  background: #e6c200;
-}
-
-/* Sections */
-section {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.features, .blogs {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.card {
-  padding: 2rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* Contact */
-.contact form {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.contact input, 
-.contact textarea {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-
-.contact button {
-  padding: 0.8rem;
-  border: none;
-  border-radius: 5px;
-  background: #004466;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.contact button:hover {
-  background: #006699;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  background: #004466;
-  color: #fff;
-}
-
-#darkModeToggle {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background: #ffd700;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-#darkModeToggle:hover {
-  background: #e6c200;
-}
-
-/* Back to Top Button */
-#backToTop {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 0.6rem 0.9rem;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 50%;
-  background: #004466;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-#backToTop:hover {
-  background: #006699;
-}
-
-/* Dark Mode */
-.dark-mode {
-  background: #222;
-  color: #eee;
-}
-
-.dark-mode header {
-  background: #222;
-}
-
-.dark-mode .card {
-  background: #333;
-  color: #eee;
-}
-
-.dark-mode footer {
-  background: #111;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
-    top: 70px;
     right: 0;
-    background: #004466;
+    top: 70px;
     flex-direction: column;
+    background: #004466;
     width: 200px;
+    text-align: center;
     display: none;
-    padding: 1rem;
   }
 
   .nav-links.active {
@@ -234,4 +105,117 @@ footer {
   .hamburger {
     display: flex;
   }
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(to right, #0077b6, #00b4d8);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  margin-bottom: 1.5rem;
+}
+
+.cta-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background: #ffcc00;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Section Styles ===== */
+section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.features, .blogs, .about {
+  background: #f7f7f7;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  max-width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #004466;
+  color: white;
+}
+
+/* ===== Buttons ===== */
+#darkModeToggle {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #ffcc00;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+#darkModeToggle:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Back to Top Button ===== */
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #0077b6;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#backToTop:hover {
+  background: #005f8d;
+}
+
+/* ===== Reveal Animation ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
 }
