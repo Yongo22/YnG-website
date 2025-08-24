@@ -10,8 +10,8 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f5f5dc; /* beige */
-  color: #003366; /* dark blue */
+  background-color: #f5f5dc;
+  color: #003366;
   scroll-behavior: smooth;
 }
 
@@ -86,6 +86,23 @@ header {
   background: #ffd633;
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   Hamburger
+========================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
 }
 
 /* =========================
@@ -219,7 +236,23 @@ footer a:hover {
 ========================= */
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* can implement hamburger menu later */
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #003366;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 0 0 0 8px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   .hero h1 {
@@ -232,6 +265,4 @@ footer a:hover {
 
   .features {
     padding: 2rem 1rem;
-    gap: 1.5rem;
-  }
-}
+    gap: 1.
