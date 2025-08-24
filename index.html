@@ -3,77 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yn'G Website</title>
+  <meta name="description" content="Yn'G Website - Gaming, Books & Community" />
+  <title>Yn'G Official</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Header -->
   <header>
     <nav>
-      <div class="logo">Yn'G</div>
+      <h1>Yn'G</h1>
       <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
+        <li><a href="#home">Home</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#blogs">Blogs</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><button id="darkModeToggle">🌙 Dark Mode</button></li>
       </ul>
       <div class="hamburger">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <h1>Welcome to Yn'G</h1>
-    <p>Gaming • Books • Community</p>
+  <section id="home" class="hero">
+    <h2>Welcome to Yn'G</h2>
+    <p>Your hub for Gaming, Books, and Community growth.</p>
     <button class="cta-btn">Get Started</button>
   </section>
 
-  <!-- Features -->
+  <!-- Features Section -->
   <section id="features" class="features">
-    <h2>Our Features</h2>
-    <div class="card">Gaming Spotlights</div>
-    <div class="card">Books & Knowledge</div>
-    <div class="card">Charity & Community</div>
+    <h2>Features</h2>
+    <div class="card">🎮 Gaming Spots</div>
+    <div class="card">📚 Book Club</div>
+    <div class="card">💡 Inspiration</div>
   </section>
 
-  <!-- Blogs -->
+  <!-- Blogs Section -->
   <section id="blogs" class="blogs">
-    <h2>Latest Blogs</h2>
-    <div class="card">Blog Post 1</div>
-    <div class="card">Blog Post 2</div>
-    <div class="card">Blog Post 3</div>
+    <h2>Our Blog</h2>
+    <div class="card">
+      <h3>Latest Insights</h3>
+      <p>Catch up on our articles about gaming, books, and youth inspiration.</p>
+    </div>
+    <div class="card">
+      <h3>Community Stories</h3>
+      <p>See how Yn'G is inspiring change and growth in our community.</p>
+    </div>
   </section>
 
-  <!-- About -->
+  <!-- About Section -->
   <section id="about" class="about">
     <h2>About Us</h2>
-    <p>Yn'G is a space for creativity, gaming, learning, and giving back to the community.</p>
+    <p>
+      Yn'G is more than just gaming and books — it's a movement.  
+      We aim to create a space for youth, children, and women to connect, learn, and inspire.  
+    </p>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact Section -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <form id="contactForm">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="cta-btn">Send Message</button>
     </form>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Yn'G. All rights reserved.</p>
-    <button id="darkModeToggle">🌙 Dark Mode</button>
+    <p>&copy; 2025 Yn'G. All Rights Reserved.</p>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button id="backToTop" title="Back to top">↑</button>
+  <!-- Back to Top -->
+  <button id="backToTop">⬆</button>
 
-  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
