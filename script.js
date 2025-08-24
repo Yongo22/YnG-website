@@ -9,7 +9,7 @@ hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
-// Close mobile menu on link click + smooth scroll
+// Smooth Scroll + Close mobile menu
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -17,7 +17,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     }
-    // Close mobile menu if open
     if (navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
       hamburger.classList.remove('active');
@@ -25,17 +24,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Scroll Reveal with Intersection Observer (more performant than scroll event)
-const observerOptions = {
-  threshold: 0.15
-};
+// Scroll Reveal using Intersection Observer
+const observerOptions = { threshold: 0.15 };
 
 const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.style.opacity = '1';
       entry.target.style.transform = 'translateY(0)';
-      observer.unobserve(entry.target); // stop observing once revealed
+      observer.unobserve(entry.target);
     }
   });
 }, observerOptions);
