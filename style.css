@@ -295,3 +295,13 @@ footer a:hover {
 
   .nav-links.active {
     display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}
