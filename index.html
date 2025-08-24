@@ -1,89 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yn'G Website</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Navbar -->
+  <!-- Header -->
   <header>
-    <nav class="navbar">
-      <a href="#" class="logo">Yn'G</a>
+    <nav>
+      <div class="logo">Yn'G</div>
       <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#blogs">Blogs</a></li>
-        <li><a href="#footer">Contact</a></li>
+        <li><a href="#about">About</a></li>
       </ul>
-      <div class="hamburger" aria-label="Menu Toggle" role="button" tabindex="0">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="hamburger">
+        <span></span><span></span><span></span>
       </div>
-      <a href="#features" class="btn-nav">Get Started</a>
     </nav>
   </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-      <h1>Welcome to Yn'G</h1>
-      <p>Explore our amazing features and interactive experience.</p>
-      <div class="buttons">
-        <a href="#features" class="btn-primary">Learn More</a>
-        <a href="#features" class="btn-secondary">Features</a>
-      </div>
-    </section>
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <h1>Welcome to Yn'G</h1>
+    <p>Gaming • Books • Community</p>
+    <button class="cta-btn">Get Started</button>
+  </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-      <article class="card">
-        <h3>Feature 1</h3>
-        <p>Short description of feature one.</p>
-      </article>
-      <article class="card">
-        <h3>Feature 2</h3>
-        <p>Short description of feature two.</p>
-      </article>
-      <article class="card">
-        <h3>Feature 3</h3>
-        <p>Short description of feature three.</p>
-      </article>
-    </section>
+  <!-- Features -->
+  <section id="features" class="features">
+    <h2>Our Features</h2>
+    <div class="card">Gaming Spotlights</div>
+    <div class="card">Books & Knowledge</div>
+    <div class="card">Charity & Community</div>
+  </section>
 
-    <!-- Blogs Section -->
-    <section class="blogs" id="blogs">
-      <h2>Latest Articles</h2>
-      <div class="blog-cards">
-        <article class="blog-card">
-          <img src="https://picsum.photos/300/200" alt="Creative Games">
-          <h3>5 Games That Boost Creativity</h3>
-          <p>Explore games that challenge the mind and spark creativity.</p>
-          <a href="#" class="btn-secondary">Read More</a>
-        </article>
-        <article class="blog-card">
-          <img src="https://picsum.photos/300/200?2" alt="Top Books">
-          <h3>Top 10 Books Every Teen Should Read</h3>
-          <p>Curated reading list to inspire and educate youth.</p>
-          <a href="#" class="btn-secondary">Read More</a>
-        </article>
-        <article class="blog-card">
-          <img src="https://picsum.photos/300/200?3" alt="DIY Projects">
-          <h3>DIY Projects for Teens: Fun & Easy Ideas</h3>
-          <p>Creative projects to spark teamwork and imagination.</p>
-          <a href="#" class="btn-secondary">Read More</a>
-        </article>
-      </div>
-    </section>
-  </main>
+  <!-- Blogs -->
+  <section id="blogs" class="blogs">
+    <h2>Latest Blogs</h2>
+    <div class="card">Blog Post 1</div>
+    <div class="card">Blog Post 2</div>
+    <div class="card">Blog Post 3</div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>Yn'G is a space for creativity, gaming, learning, and giving back to the community.</p>
+  </section>
 
   <!-- Footer -->
-  <footer id="footer">
-    <p>© 2025 Yn'G. All rights reserved. <a href="#">Privacy Policy</a></p>
+  <footer>
+    <p>© 2025 Yn'G. All rights reserved.</p>
+    <button id="darkModeToggle">🌙 Dark Mode</button>
   </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Back to top">↑</button>
 
   <script src="script.js"></script>
 </body>
