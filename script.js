@@ -13,10 +13,15 @@ hamburger.addEventListener('click', () => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    const hash = this.getAttribute('href');
+
+    // Skip invalid or empty hashes
+    if (!hash || hash === '#' || !document.querySelector(hash)) return;
+
+    const target = document.querySelector(hash);
+    target.scrollIntoView({ behavior: 'smooth' });
+
+    // Close mobile menu if open
     if (navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
       hamburger.classList.remove('active');
