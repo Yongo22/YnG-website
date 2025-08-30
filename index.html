@@ -1,45 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yn'G CMS Admin</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yn'G Website - Books, Inspiration & Community" />
+  <title>Yn'G Official</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <h1>Yn'G CMS Admin Panel</h1>
+    <nav>
+      <h1 class="logo">Yn'G</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>Hero Section</h2>
-      <input id="heroTitle" placeholder="Hero Title" />
-      <input id="heroSubtitle" placeholder="Hero Subtitle" />
-      <input id="heroCTA" placeholder="CTA Text" />
-      <input id="heroCTALink" placeholder="CTA Link" />
-    </section>
+  <!-- Hero Section -->
+  <section id="home" class="hero reveal">
+    <h2 class="hero-text">Create, Learn, Inspire</h2>
+    <p class="hero-text">Where Creativity Meets Community</p>
+    <button class="cta-btn" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Get Started</button>
+  </section>
 
-    <section>
-      <h2>Features</h2>
-      <div id="featuresContainer"></div>
-      <button id="addFeature">Add Feature</button>
-    </section>
+  <!-- Features Section -->
+  <section id="features" class="features reveal">
+    <h2>Our Focus</h2>
+    <div class="card">
+      <h3>📚 Book Club</h3>
+      <p>Discover and share amazing books with our community.</p>
+      <button class="cta-btn">Join Now</button>
+    </div>
+    <div class="card">
+      <h3>💡 Inspiration</h3>
+      <p>Find motivation, tips, and stories that uplift your spirit.</p>
+      <button class="cta-btn">Get Inspired</button>
+    </div>
+    <div class="card">
+      <h3>🤝 Community</h3>
+      <p>Connect with youth, children, and women to learn and grow.</p>
+      <button class="cta-btn">Join Community</button>
+    </div>
+  </section>
 
-    <section>
-      <h2>About Section</h2>
-      <textarea id="aboutText" rows="5" placeholder="About Text"></textarea>
-    </section>
+  <!-- Blogs Section -->
+  <section id="blogs" class="blogs reveal">
+    <h2>Our Blog</h2>
+    <div class="card">
+      <h3>Book Reviews</h3>
+      <p>Deep dives into inspiring books and learning resources.</p>
+      <button class="cta-btn">Read More</button>
+    </div>
+    <div class="card">
+      <h3>Community Stories</h3>
+      <p>Stories of growth, impact, and inspiration from our members.</p>
+      <button class="cta-btn">Read More</button>
+    </div>
+  </section>
 
-    <section>
-      <h2>Blogs</h2>
-      <div id="blogsContainer"></div>
-      <button id="addBlog">Add Blog</button>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="about reveal">
+    <h2>About Yn'G</h2>
+    <p>Yn'G is a community dedicated to spreading love, learning, and creativity. Through interactive activities and books, we connect youth, children, and women, inspiring growth, imagination, and meaningful connections.</p>
+  </section>
 
-    <button id="downloadJSON">Download Updated JSON</button>
-  </main>
+  <!-- Contact Section -->
+  <section id="contact" class="contact reveal">
+    <h2>Contact Us</h2>
+    <p>Have questions, suggestions, or ideas? We’d love to hear from you!</p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" rows="6" required></textarea>
+      <button type="submit" class="cta-btn">Send Message</button>
+    </form>
+  </section>
 
-  <script src="admin.js"></script>
+  <!-- Footer -->
+  <footer class="reveal">
+    <p>&copy; 2025 Yn'G. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="backToTop">⬆</button>
+
+  <script src="script.js"></script>
 </body>
 </html>
