@@ -33,25 +33,45 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// ===== Optional: Rotating Hero Text =====
-const heroMain = document.querySelector(".hero-text");
-const heroTexts = [
-  "Create, Learn, Inspire",
-  "Ignite Your Creativity",
-  "Inspire. Create. Uplift.",
-  "Where Ideas Meet Impact"
-];
-let heroIndex = 0;
+// ===== Load CMS Content from JSON =====
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    // Hero Section
+    const heroTitle = document.querySelector('.hero h2');
+    const heroSubtitle = document.querySelector('.hero p');
+    const heroButton = document.querySelector('.hero .cta-btn');
 
-function rotateHeroText() {
-  heroIndex = (heroIndex + 1) % heroTexts.length;
-  heroMain.classList.remove("fade-in");
-  
-  setTimeout(() => {
-    heroMain.textContent = heroTexts[heroIndex];
-    heroMain.classList.add("fade-in");
-  }, 300);
-}
+    heroTitle.textContent = data.hero.title;
+    heroSubtitle.textContent = data.hero.subtitle;
+    heroButton.textContent = data.hero.ctaText;
+    heroButton.onclick = () => {
+      document.querySelector(data.hero.ctaLink).scrollIntoView({ behavior: 'smooth' });
+    };
 
-// Rotate every 6 seconds
-setInterval(rotateHeroText, 6000);
+    // Features Section
+    const featuresSection = document.querySelector('#features');
+    featuresSection.innerHTML = `<h2>Our Focus</h2>` +
+      data.features.map(f => `
+      <div class="card reveal">
+        <h3>${f.title}</h3>
+        <p>${f.description}</p>
+        <button class="cta-btn" onclick="location.href='${f.ctaLink}'">${f.ctaText}</button>
+      </div>
+    `).join('');
+
+    // About Section
+    const aboutSection = document.querySelector('#about p');
+    aboutSection.textContent = data.about.text;
+
+    // Blogs Section
+    const blogsSection = document.querySelector('#blogs');
+    blogsSection.innerHTML = `<h2>Our Blog</h2>` +
+      data.blogs.map(b => `
+      <div class="card reveal">
+        <h3>${b.title}</h3>
+        <p>${b.summary}</p>
+        <button class="cta-btn" onclick="location.href='${b.link}'">Read More</button>
+      </div>
+    `).join('');
+  });
