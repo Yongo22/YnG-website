@@ -1,43 +1,44 @@
-{
-  "hero": {
-    "title": "Create, Learn, Inspire",
-    "subtitle": "Where Creativity Meets Community",
-    "ctaText": "Get Started",
-    "ctaLink": "#features"
+// Convert JSON to JS object for GitHub Pages compatibility
+const cmsData = {
+  hero: {
+    title: "Create, Learn, Inspire",
+    subtitle: "Where Creativity Meets Community",
+    ctaText: "Get Started",
+    ctaLink: "#features"
   },
-  "features": [
+  features: [
     {
-      "title": "📚 Book Club",
-      "description": "Discover and share amazing books with our community.",
-      "ctaText": "Join Now",
-      "ctaLink": "#"
+      title: "📚 Book Club",
+      description: "Discover and share amazing books with our community.",
+      ctaText: "Join Now",
+      ctaLink: "#"
     },
     {
-      "title": "💡 Inspiration",
-      "description": "Find motivation, tips, and stories that uplift your spirit.",
-      "ctaText": "Get Inspired",
-      "ctaLink": "#"
+      title: "💡 Inspiration",
+      description: "Find motivation, tips, and stories that uplift your spirit.",
+      ctaText: "Get Inspired",
+      ctaLink: "#"
     },
     {
-      "title": "🤝 Community",
-      "description": "Connect with youth, children, and women to learn and grow.",
-      "ctaText": "Join Community",
-      "ctaLink": "#"
+      title: "🤝 Community",
+      description: "Connect with youth, children, and women to learn and grow.",
+      ctaText: "Join Community",
+      ctaLink: "#"
     }
   ],
-  "about": {
-    "text": "Yn'G is a community dedicated to spreading love, learning, and creativity..."
+  about: {
+    text: "Yn'G is a community dedicated to spreading love, learning, and creativity..."
   },
-  "blogs": [
+  blogs: [
     {
-      "title": "Book Reviews",
-      "summary": "Deep dives into inspiring books and learning resources.",
-      "link": "#"
+      title: "Book Reviews",
+      summary: "Deep dives into inspiring books and learning resources.",
+      link: "#"
     },
     {
-      "title": "Community Stories",
-      "summary": "Stories of growth, impact, and inspiration from our members.",
-      "link": "#"
+      title: "Community Stories",
+      summary: "Stories of growth, impact, and inspiration from our members.",
+      link: "#"
     }
   ]
-}
+};
