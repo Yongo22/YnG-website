@@ -33,45 +33,43 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// ===== Load CMS Content from JSON =====
-fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    // Hero Section
-    const heroTitle = document.querySelector('.hero h2');
-    const heroSubtitle = document.querySelector('.hero p');
-    const heroButton = document.querySelector('.hero .cta-btn');
+// ===== Load CMS Content from JS Object =====
+const data = cmsData; // Using cmsData from data.js
 
-    heroTitle.textContent = data.hero.title;
-    heroSubtitle.textContent = data.hero.subtitle;
-    heroButton.textContent = data.hero.ctaText;
-    heroButton.onclick = () => {
-      document.querySelector(data.hero.ctaLink).scrollIntoView({ behavior: 'smooth' });
-    };
+// Hero Section
+const heroTitle = document.querySelector('.hero h2');
+const heroSubtitle = document.querySelector('.hero p');
+const heroButton = document.querySelector('.hero .cta-btn');
 
-    // Features Section
-    const featuresSection = document.querySelector('#features');
-    featuresSection.innerHTML = `<h2>Our Focus</h2>` +
-      data.features.map(f => `
-      <div class="card reveal">
-        <h3>${f.title}</h3>
-        <p>${f.description}</p>
-        <button class="cta-btn" onclick="location.href='${f.ctaLink}'">${f.ctaText}</button>
-      </div>
-    `).join('');
+heroTitle.textContent = data.hero.title;
+heroSubtitle.textContent = data.hero.subtitle;
+heroButton.textContent = data.hero.ctaText;
+heroButton.onclick = () => {
+  document.querySelector(data.hero.ctaLink).scrollIntoView({ behavior: 'smooth' });
+};
 
-    // About Section
-    const aboutSection = document.querySelector('#about p');
-    aboutSection.textContent = data.about.text;
+// Features Section
+const featuresSection = document.querySelector('#features');
+featuresSection.innerHTML = `<h2>Our Focus</h2>` +
+  data.features.map(f => `
+    <div class="card reveal">
+      <h3>${f.title}</h3>
+      <p>${f.description}</p>
+      <button class="cta-btn" onclick="location.href='${f.ctaLink}'">${f.ctaText}</button>
+    </div>
+  `).join('');
 
-    // Blogs Section
-    const blogsSection = document.querySelector('#blogs');
-    blogsSection.innerHTML = `<h2>Our Blog</h2>` +
-      data.blogs.map(b => `
-      <div class="card reveal">
-        <h3>${b.title}</h3>
-        <p>${b.summary}</p>
-        <button class="cta-btn" onclick="location.href='${b.link}'">Read More</button>
-      </div>
-    `).join('');
-  });
+// About Section
+const aboutSection = document.querySelector('#about p');
+aboutSection.textContent = data.about.text;
+
+// Blogs Section
+const blogsSection = document.querySelector('#blogs');
+blogsSection.innerHTML = `<h2>Our Blog</h2>` +
+  data.blogs.map(b => `
+    <div class="card reveal">
+      <h3>${b.title}</h3>
+      <p>${b.summary}</p>
+      <button class="cta-btn" onclick="location.href='${b.link}'">Read More</button>
+    </div>
+  `).join('');
