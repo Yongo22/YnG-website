@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Yn'G Website - Books & Community" />
+  <meta name="description" content="Yn'G Website - Books, Inspiration & Community" />
   <title>Yn'G Official</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <!-- Header -->
   <header>
     <nav>
-      <h1>Yn'G</h1>
+      <h1 class="logo">Yn'G</h1>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#features">Features</a></li>
@@ -30,50 +31,59 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-    <h2>Welcome to Yn'G</h2>
-    <p>Your hub for Books, Inspiration, and Community growth.</p>
-    <button class="cta-btn">Get Started</button>
+    <h2 class="hero-text">Explore the World of Books</h2>
+    <p class="hero-text">Get inspired, learn, and join a growing community.</p>
+    <button class="cta-btn" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Get Started</button>
   </section>
 
   <!-- Features Section -->
-  <section id="features" class="features">
-    <h2>Features</h2>
-    <div class="card">📚 Book Club</div>
-    <div class="card">💡 Inspiration</div>
-    <div class="card">🤝 Community Engagement</div>
+  <section id="features" class="features reveal">
+    <h2>Our Focus</h2>
+    <div class="card">
+      <h3>📚 Book Club</h3>
+      <p>Discover and share amazing books with our community.</p>
+      <button class="cta-btn">Join Now</button>
+    </div>
+    <div class="card">
+      <h3>💡 Inspiration</h3>
+      <p>Find motivation, tips, and stories that uplift your spirit.</p>
+      <button class="cta-btn">Get Inspired</button>
+    </div>
+    <div class="card">
+      <h3>🤝 Community</h3>
+      <p>Connect with youth, children, and women to learn and grow.</p>
+      <button class="cta-btn">Join Community</button>
+    </div>
   </section>
 
   <!-- Blogs Section -->
-  <section id="blogs" class="blogs">
+  <section id="blogs" class="blogs reveal">
     <h2>Our Blog</h2>
     <div class="card">
-      <h3>Latest Insights</h3>
-      <p>Catch up on our articles about books, inspiration, and community growth.</p>
+      <h3>Book Reviews</h3>
+      <p>Deep dives into inspiring books and learning resources.</p>
+      <button class="cta-btn">Read More</button>
     </div>
     <div class="card">
       <h3>Community Stories</h3>
-      <p>See how Yn'G is inspiring change and growth in our community.</p>
+      <p>Stories of growth, impact, and inspiration from our members.</p>
+      <button class="cta-btn">Read More</button>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Us</h2>
-    <p>
-      Yn'G is more than just a platform — it's a movement.  
-      Our vision is to empower youth, children, and women through knowledge, inspiration, and community engagement.
-    </p>
-    <h3>Mission</h3>
+  <section id="about" class="about reveal">
+    <h2>About Yn'G</h2>
+    <p>Yn'G is a movement focused on learning, inspiration, and community.</p>
     <ul>
-      <li>Inspire Growth through knowledge and stories.</li>
-      <li>Build a Community for collaboration and learning.</li>
-      <li>Promote Knowledge & Creativity as tools for empowerment.</li>
-      <li>Support Youth & Women with guidance and opportunities.</li>
+      <li>Encourage reading and knowledge sharing</li>
+      <li>Motivate youth and women through inspiration</li>
+      <li>Create a safe and active community space</li>
     </ul>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact reveal">
     <h2>Contact Us</h2>
     <form>
       <input type="text" placeholder="Your Name" required />
@@ -84,7 +94,7 @@
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="reveal">
     <p>&copy; 2025 Yn'G. All Rights Reserved.</p>
   </footer>
 
