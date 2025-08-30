@@ -23,9 +23,44 @@ body.dark-mode {
   color: #f0f0f0;
 }
 
+/* Dark Mode Overrides */
+body.dark-mode .hero,
+body.dark-mode .features,
+body.dark-mode .blogs,
+body.dark-mode .about,
+body.dark-mode footer {
+  background: #1a1a1a;
+  color: #f0f0f0;
+}
+
+body.dark-mode .card {
+  background: #222;
+  color: #f0f0f0;
+  box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+}
+
+body.dark-mode .cta-btn,
+body.dark-mode #darkModeToggle {
+  background: #ffcc00;
+  color: #004466;
+}
+
+body.dark-mode .cta-btn:hover,
+body.dark-mode #darkModeToggle:hover {
+  background: #ffe680;
+}
+
+body.dark-mode a {
+  color: #ffcc00;
+}
+
+body.dark-mode a:hover {
+  color: #ffd633;
+}
+
 /* ===== Header & Navigation ===== */
 header {
-  background: #004466; /* Deep Blue */
+  background: #004466;
   color: white;
   padding: 1rem 2rem;
   position: sticky;
