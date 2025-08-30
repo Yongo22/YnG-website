@@ -1,76 +1,121 @@
-// ===== Mobile Menu =====
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
+// ===== Simple CMS Admin =====
 
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-  hamburger.classList.toggle("active");
-});
+// Sample initial data (load your data.json content here)
+let cmsData = {
+  hero: { title: "", subtitle: "", ctaText: "", ctaLink: "" },
+  features: [],
+  about: { text: "" },
+  blogs: []
+};
 
-// ===== Back to Top =====
-const backToTop = document.getElementById("backToTop");
-window.addEventListener("scroll", () => {
-  backToTop.style.display = window.scrollY > 300 ? "block" : "none";
-});
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+// ===== Hero Inputs =====
+const heroTitle = document.getElementById("heroTitle");
+const heroSubtitle = document.getElementById("heroSubtitle");
+const heroCTA = document.getElementById("heroCTA");
+const heroCTALink = document.getElementById("heroCTALink");
 
-// ===== Scroll Reveal =====
-const reveals = document.querySelectorAll(".reveal");
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-      el.classList.add("show");
-    }
+[heroTitle, heroSubtitle, heroCTA, heroCTALink].forEach(input => {
+  input.addEventListener("input", () => {
+    cmsData.hero.title = heroTitle.value;
+    cmsData.hero.subtitle = heroSubtitle.value;
+    cmsData.hero.ctaText = heroCTA.value;
+    cmsData.hero.ctaLink = heroCTALink.value;
   });
 });
 
-// ===== Load CMS Content Safely =====
-const CMS_URL = 'https://yongo22.github.io/YnG-website/data.json';
+// ===== Features =====
+const featuresContainer = document.getElementById("featuresContainer");
+const addFeatureBtn = document.getElementById("addFeature");
 
-fetch(CMS_URL)
-  .then(res => {
-    if (!res.ok) throw new Error("Network response was not ok");
-    return res.json();
-  })
-  .then(data => {
-    // Hero
-    document.querySelector('.hero h2').textContent = data.hero.title;
-    document.querySelector('.hero p').textContent = data.hero.subtitle;
-    const heroBtn = document.querySelector('.hero .cta-btn');
-    heroBtn.textContent = data.hero.ctaText;
-    heroBtn.onclick = () => {
-      document.querySelector(data.hero.ctaLink).scrollIntoView({ behavior: 'smooth' });
-    };
-
-    // Features
-    const featuresSection = document.querySelector('#features');
-    featuresSection.innerHTML = `<h2>Our Focus</h2><div class="cards-container">` +
-      data.features.map(f => `
-        <div class="card reveal">
-          <h3>${f.title}</h3>
-          <p>${f.description}</p>
-          <button class="cta-btn" onclick="location.href='${f.ctaLink}'">${f.ctaText}</button>
-        </div>
-      `).join('') + `</div>`;
-
-    // About
-    document.querySelector('#about p').textContent = data.about.text;
-
-    // Blogs
-    const blogsSection = document.querySelector('#blogs');
-    blogsSection.innerHTML = `<h2>Our Blog</h2><div class="cards-container">` +
-      data.blogs.map(b => `
-        <div class="card reveal">
-          <img src="${b.image}" alt="${b.title}" />
-          <h3>${b.title}</h3>
-          <p>${b.summary}</p>
-          <button class="cta-btn" onclick="location.href='${b.link}'">Read More</button>
-        </div>
-      `).join('') + `</div>`;
-  })
-  .catch(err => {
-    console.error("Failed to load CMS data:", err);
-    document.querySelector('#features').innerHTML = "<p>Content failed to load. Please try again later.</p>";
+function renderFeatures() {
+  featuresContainer.innerHTML = "";
+  cmsData.features.forEach((f, index) => {
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <input placeholder="Feature Title" value="${f.title}" data-index="${index}" data-key="title">
+      <input placeholder="Feature Description" value="${f.description}" data-index="${index}" data-key="description">
+      <input placeholder="Feature CTA Text" value="${f.ctaText}" data-index="${index}" data-key="ctaText">
+      <input placeholder="Feature CTA Link" value="${f.ctaLink}" data-index="${index}" data-key="ctaLink">
+      <button data-index="${index}" class="removeFeature">Remove</button>
+      <hr>
+    `;
+    featuresContainer.appendChild(div);
   });
+
+  document.querySelectorAll("input[data-key]").forEach(input => {
+    input.addEventListener("input", e => {
+      const idx = e.target.dataset.index;
+      const key = e.target.dataset.key;
+      cmsData.features[idx][key] = e.target.value;
+    });
+  });
+
+  document.querySelectorAll(".removeFeature").forEach(btn => {
+    btn.addEventListener("click", e => {
+      cmsData.features.splice(e.target.dataset.index, 1);
+      renderFeatures();
+    });
+  });
+}
+
+addFeatureBtn.addEventListener("click", () => {
+  cmsData.features.push({ title: "", description: "", ctaText: "", ctaLink: "" });
+  renderFeatures();
+});
+
+// ===== About =====
+const aboutText = document.getElementById("aboutText");
+aboutText.addEventListener("input", () => cmsData.about.text = aboutText.value);
+
+// ===== Blogs =====
+const blogsContainer = document.getElementById("blogsContainer");
+const addBlogBtn = document.getElementById("addBlog");
+
+function renderBlogs() {
+  blogsContainer.innerHTML = "";
+  cmsData.blogs.forEach((b, index) => {
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <input placeholder="Blog Title" value="${b.title}" data-index="${index}" data-key="title">
+      <input placeholder="Blog Summary" value="${b.summary}" data-index="${index}" data-key="summary">
+      <input placeholder="Blog Link" value="${b.link}" data-index="${index}" data-key="link">
+      <input placeholder="Blog Image URL" value="${b.image}" data-index="${index}" data-key="image">
+      <button data-index="${index}" class="removeBlog">Remove</button>
+      <hr>
+    `;
+    blogsContainer.appendChild(div);
+  });
+
+  document.querySelectorAll("input[data-key]").forEach(input => {
+    input.addEventListener("input", e => {
+      const idx = e.target.dataset.index;
+      const key = e.target.dataset.key;
+      if (e.target.closest("section").id === "blogs") {
+        cmsData.blogs[idx][key] = e.target.value;
+      }
+    });
+  });
+
+  document.querySelectorAll(".removeBlog").forEach(btn => {
+    btn.addEventListener("click", e => {
+      cmsData.blogs.splice(e.target.dataset.index, 1);
+      renderBlogs();
+    });
+  });
+}
+
+addBlogBtn.addEventListener("click", () => {
+  cmsData.blogs.push({ title: "", summary: "", link: "#", image: "" });
+  renderBlogs();
+});
+
+// ===== Download JSON =====
+document.getElementById("downloadJSON").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(cmsData, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "data.json";
+  a.click();
+  URL.revokeObjectURL(url);
+});
